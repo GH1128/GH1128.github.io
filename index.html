@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>你好 甜</title>
+    <title>小甜甜</title>
     <meta name="viewport"
         content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <style type="text/css">
@@ -24,7 +24,7 @@
         }
 
 
-        .app {
+        .app ,.no{
             height: 100%;
             max-width: 897px;
             margin: 0 auto;
@@ -33,14 +33,39 @@
             align-items: center;
             font-size: 52.0px;
             font-weight: 520;
+            padding: 20px;
+        }
+
+        .imgs {
+            width:100px;
+            height: 100px;
+        }
+        .no{
+            height: 90%;
+            font-size: 26px;
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="app">
+    <div class="app" onclick="btn()">
         Hello World!
     </div>
+    <div class='no'>
+        <p>网站内容禁止访问，联系管理员给他一个爱的抱抱，既可以继续访问...</p>
+        <img class="imgs" src="./images/12.jpg" alt="">
+    </div>
 </body>
+
+<script>
+    var app = document.querySelector(".app")
+    var no = document.querySelector(".no")
+    function btn() {
+        app.style.display = 'none'
+        no.style.display = 'block'
+    }
+
+</script>
 
 </html>
