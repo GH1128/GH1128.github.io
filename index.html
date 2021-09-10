@@ -24,7 +24,8 @@
         }
 
 
-        .app ,.no{
+        .app,
+        .no {
             height: 100%;
             max-width: 897px;
             margin: 0 auto;
@@ -37,10 +38,11 @@
         }
 
         .imgs {
-            width:100px;
+            width: 100px;
             height: 100px;
         }
-        .no{
+
+        .no {
             height: 90%;
             font-size: 26px;
             display: none;
@@ -52,6 +54,7 @@
     <div class="app" onclick="btn()">
         Hello World!
     </div>
+
     <div class='no'>
         <p>网站内容禁止访问，联系管理员给他一个爱的抱抱，既可以继续访问...</p>
         <img class="imgs" src="./images/12.jpg" alt="">
@@ -61,11 +64,17 @@
 <script>
     var app = document.querySelector(".app")
     var no = document.querySelector(".no")
-    function btn() {
-        app.style.display = 'none'
-        no.style.display = 'block'
-    }
+    var ind = document.querySelector(".ind")
 
+    function btn() {
+        var person = prompt("请输入你的名字", "Harry Potter");
+        if (person == '小甜' || person == '小甜甜') {
+            app.style.display = 'none'
+            no.style.display = 'block'
+        } else {
+            alert('你是憨憨吗？')
+        }
+    }
 </script>
 
 </html>
