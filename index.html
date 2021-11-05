@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>小甜甜</title>
+    <title>圈</title>
     <meta name="viewport"
         content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <style type="text/css">
         * {
             padding: 0;
@@ -16,6 +17,7 @@
         body {
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         body {
@@ -24,7 +26,7 @@
         }
 
 
-        .app,
+        #app,
         .no {
             height: 100%;
             max-width: 897px;
@@ -38,8 +40,7 @@
         }
 
         .imgs {
-            width: 100px;
-            height: 100px;
+            width: 100%;
         }
 
         .no {
@@ -51,30 +52,28 @@
 </head>
 
 <body>
-    <div class="app" onclick="btn()">
-        Hello World!
+    <div id="app">
+        <p v-if='isShow' @click='reverseMessage'> {{message}}</p>
+
+        <img v-else class="imgs" src="./img/one.jpg" alt="">
     </div>
 
-    <div class='no'>
-        <p>网站内容禁止访问，联系管理员给他一个爱的抱抱，既可以继续访问...</p>
-        <img class="imgs" src="./images/12.jpg" alt="">
-    </div>
+
 </body>
 
 <script>
-    var app = document.querySelector(".app")
-    var no = document.querySelector(".no")
-    var ind = document.querySelector(".ind")
-
-    function btn() {
-        var person = prompt("请输入昵称称", "玛卡巴卡");
-        if (person == '小甜' || person == '小甜甜') {
-            app.style.display = 'none'
-            no.style.display = 'block'
-        } else {
-            alert('你是憨憨吗？你的爱称')
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World!',
+            isShow: true
+        },
+        methods: {
+            reverseMessage: function () {
+                this.isShow = false
+            }
         }
-    }
+    })
 </script>
 
 </html>
