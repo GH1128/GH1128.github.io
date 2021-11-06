@@ -2,78 +2,116 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>圈</title>
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <style type="text/css">
-        * {
-            padding: 0;
-            margin: 0;
-        }
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>圈~</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        body {
-            /* padding: 0 .3rem; */
-            font-size: .9rem;
-        }
+	<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 
+	<style>
+		html,body,h1{
+			padding: 0;
+			margin: 0;
+		}
+		.bgM {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1000;
+			background-color: rgba(0, 0, 0, 0.85);
+			overflow: hidden;
+		}
 
-        #app,
-        .no {
-            height: 100%;
-            max-width: 897px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 52.0px;
-            font-weight: 520;
-            padding: 20px;
-        }
+		.bgM img {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1001;
+			margin: auto;
+		}
 
-        .imgs {
-            width: 100%;
-        }
+		/*使图片在浏览器中居中显示*/
+		.bigImg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/*图片向左移动自身宽度的50%, 向上移动自身高度的50%。*/
+			transform: translate(-50%, -50%);
+		}
 
-        .no {
-            height: 90%;
-            font-size: 26px;
-            display: none;
-        }
-    </style>
+		/*遮罩层*/
+		.opacityBottom {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			background: rgba(0, 0, 0, 0.8);
+			z-index: 1000;
+			top: 0;
+			left: 0;
+		}
+		.df{
+			background: white;
+		}
+		h1{
+			padding: 5px 10px;
+			margin-bottom: 18px;
+			/* text-align: center; */
+		}
+	</style>
 </head>
 
+
 <body>
-    <div id="app">
-        <p v-if='isShow' @click='reverseMessage'> {{message}}</p>
 
-        <img v-else class="imgs" src="./img/one.jpg" alt="">
-    </div>
+	<div class="wrapper">
+		<h1 class="df">圈~</h1>
+		<ul class="wall">
+			<li class="article">
+				<img src="images/1.jpg" />
+				<p>2021-6</p>
+			</li>
+			<li class="article">
+				<img src="images/2.jpg" />
+				<p>2021-7</p>
+			</li>
+			<li class="article">
+				<img src="images/5.jpg" />
+				<p>2021-8</p>
+			</li>
+			<li class="article">
+				<img src="images/4.jpg" />
+				<p>2021-9</p>
+			</li>
+			<li class="article">
+				<img src="images/10.jpg" />
+				<p>2021-10</p>
+			</li>
+			<li class="article">
+				<img src="images/11.jpg" />
+				<p>2021-11</p>
+			</li>
+		</ul>
+	</div>
 
+	<!-- <script src="js/jaliswall.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('.wall').jaliswall({
+				item: '.article'
+			});
+		});
+	</script> -->
 
 </body>
-
-<script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello World!',
-            isShow: true
-        },
-        methods: {
-            reverseMessage: function () {
-                this.isShow = false
-            }
-        }
-    })
-</script>
 
 </html>
